@@ -82,7 +82,7 @@ const App = () => (
             marginLeft: '6%',
           }}
           >
-            <NavLink activeclassname="active" to="/MyProfile" style={{ color: '#95c6ff' }}>
+            <NavLink activeclassname="active" to="/My profile" style={{ color: '#95c6ff' }}>
               My Profile
             </NavLink>
           </li>
