@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMissionsApi } from './redux/missions/missions';
+import { fetchRocketsApi } from './redux/rocket/rocket';
 import planet from './images/planet.png';
 import Rockets from './components/Rockets';
 import Missions from './components/Missions';
@@ -18,9 +19,11 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMissionsApi());
+    dispatch(fetchRocketsApi());
   }, [dispatch]);
 
   const missions = useSelector((state) => state.missionsReducer);
+  const rockets = useSelector((state) => state.rocketReducer);
   return (
     <Router>
       <div style={{ maxWidth: '100%' }}>
@@ -96,8 +99,8 @@ const App = () => {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<Rockets />} />
-          <Route path="/Rockets" element={<Rockets />} />
+          <Route path="/" element={<Rockets rockets={rockets} />} />
+          <Route path="/Rockets" element={<Rockets rockets={rockets} />} />
           <Route path="/Missions" element={<Missions missions={missions} />} />
           <Route path="/MyProfile" element={<Profile />} />
         </Routes>
