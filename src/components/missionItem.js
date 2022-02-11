@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { confirmLeaveMission, confirmMission } from '../redux/missions/missions';
 
 const MissionItem = (props) => {
   const {
@@ -10,6 +12,15 @@ const MissionItem = (props) => {
       reserved,
     },
   } = props;
+
+  const dispatch = useDispatch();
+  const reserveMissionFromStore = () => {
+    if (reserved === true) {
+      dispatch(confirmLeaveMission({ id }));
+    } else {
+      dispatch(confirmMission({ id }));
+    }
+  };
 
   return (
     <tr className="table-box bax">
@@ -24,11 +35,11 @@ const MissionItem = (props) => {
       </td>
       <td className="table-box spec">
         {reserved === true ? (
-          <button type="button" className="but-join but-leave" key={id}>
+          <button type="button" className="but-join but-leave" key={id} onClick={reserveMissionFromStore}>
             Leave Mission
           </button>
         ) : (
-          <button type="button" className="but-join" key={id}>
+          <button type="button" className="but-join" key={id} onClick={reserveMissionFromStore}>
             Join Mission
           </button>
         )}
