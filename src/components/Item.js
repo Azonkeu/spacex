@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { confirmReservation, confirmCancelReservation } from '../redux/rocket/rocket';
 
 const Item = (props) => {
   const {
@@ -11,6 +13,15 @@ const Item = (props) => {
       reserved,
     },
   } = props;
+
+  const dispatch = useDispatch();
+  const reserveRocketFromStore = () => {
+    if (reserved === true) {
+      dispatch(confirmCancelReservation({ id }));
+    } else {
+      dispatch(confirmReservation({ id }));
+    }
+  };
 
   return (
     <div className="block-rocket">
@@ -30,11 +41,11 @@ const Item = (props) => {
           </p>
         </div>
         {reserved ? (
-          <button type="button" className="reserve cancel">
+          <button type="button" className="reserve cancel" onClick={reserveRocketFromStore}>
             Cancel Reservation
           </button>
         ) : (
-          <button type="button" className="reserve">
+          <button type="button" className="reserve" onClick={reserveRocketFromStore}>
             Reserve Rocket
           </button>
         )}
