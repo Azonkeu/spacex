@@ -36,6 +36,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -146,7 +147,7 @@ a {
 }
 
 .spectwo {
-  text-align: left
+  text-align: left;
 }
 
 th {
@@ -161,7 +162,6 @@ th {
   max-width: 25%;
   padding: 1%;
   border: none;
-  display: flex;
   height: 2rem;
   text-align: center;
   display: flex;
@@ -201,7 +201,8 @@ tbody tr:nth-child(odd) {
   background-color: #eaecef;
 }
 
-td, th {
+td,
+th {
   padding: 1%;
 }
 
