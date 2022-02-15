@@ -23,7 +23,7 @@ This website displays a list of all available SpaceX rockets. Users can book eac
 - Add **React Router** and set two `<Route>`s and `<NavLink>`s for the app's navigation
 
 ## 🖥️ live Demo
-Here is the [live demo](https://azonkeu.github.io/spacex/.)
+Here is the [live demo](https://vigorous-aryabhata-51f424.netlify.app)
 
 ### Built With
 
